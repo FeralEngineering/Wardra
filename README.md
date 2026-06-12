@@ -93,7 +93,7 @@ A sample systemd service file is included at:
 
 ```text
 systemd/wardra.service
-
+```
 ---
 
 ## Logging
