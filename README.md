@@ -1,6 +1,6 @@
 # Wardra
 
-![Wardra running](/images/wardra-live.JPG)
+![Wardra running](./images/wardra-live.JPG)
 
 Wardra is a Raspberry Pi-powered wardriving virtual pet.
 
