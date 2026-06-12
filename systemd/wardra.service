@@ -1,0 +1,14 @@
+[Unit]
+Description=Wardra Wi-Fi Creature
+After=network.target gpsd.service
+
+[Service]
+Type=simple
+User=wardra
+WorkingDirectory=/home/wardra/wardra
+ExecStart=/usr/bin/python3 /home/wardra/wardra/wardra.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
