@@ -1,0 +1,7 @@
+logs/
+*.jsonl
+state.json
+wardra.lock
+__pycache__/
+*.pyc
+.DS_Store
