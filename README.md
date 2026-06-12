@@ -1,5 +1,7 @@
 # Wardra
 
+![Wardra running](images/wardra-live.jpg)
+
 Wardra is a Raspberry Pi-powered wardriving virtual pet.
 
 It passively scans nearby Wi-Fi access points, logs basic metadata with GPS context, and displays a small e-paper creature whose mood and evolution change as it discovers new networks.
