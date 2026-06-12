@@ -92,7 +92,7 @@ for scan logs and state tracking.
 A sample systemd service file is included at:
 
 ```text
-https://github.com/FeralEngineering/Wardra/systemd/wardra.service
+[`systemd/wardra.service`](systemd/wardra.service)
 ```
 ---
 
@@ -115,7 +115,7 @@ Do not publish unsanitized logs.
 
 See:
 
-- [GPS troubleshooting](https://github.com/FeralEnigneering/Wardra/docs/gps-troubleshooting.md)
+- [GPS Troubleshooting](docs/gps-troubleshooting.md)
 ```
 ---
 
