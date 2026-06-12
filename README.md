@@ -92,7 +92,7 @@ for scan logs and state tracking.
 A sample systemd service file is included at:
 
 ```text
-systemd/wardra.service
+https://github.com/FeralEngineering/Wardra/systemd/wardra.service
 ```
 ---
 
