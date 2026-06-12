@@ -50,10 +50,22 @@ Wardra/
 ├── LICENSE
 ├── .gitignore
 ├── sprites/
+│   ├── splash.png
+│   ├── stage1_*.png
+│   ├── stage2_*.png
+│   ├── stage3_*.png
+│   └── stage4_*.png
 ├── images/
+│   └── wardra-live.JPG
 ├── docs/
+│   ├── hardware.md
+│   └── gps-troubleshooting.md
 ├── examples/
+│   ├── sample_open_networks.jsonl
+│   ├── sample_secure_networks.jsonl
+│   └── sample_state.json
 └── systemd/
+    └── wardra.service
 ```
 
 Wardra expects its working directory to contain:
