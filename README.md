@@ -172,8 +172,6 @@ Current thresholds:
 EVOLVE_THRESHOLDS = [333, 666, 999, 1312]
 ```
 
-Repeated discoveries near the same location use diminishing returns to reduce farming.
-
 ---
 
 ## GPS Troubleshooting
