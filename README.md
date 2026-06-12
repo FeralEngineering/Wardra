@@ -3,45 +3,68 @@
 
 ---
 
-Built on a Pi Zero 2 W with a Waveshare 2.13" e-paper display and GPS, Wardra passively scans nearby wireless access points, logs metadata, tracks movement, and displays a living creature whose mood and evolution reflect what it encounters.
+Wardra is a Raspberry Pi-powered wardriving virtual pet.
 
-It does **not** connect to networks, attempt authentication, capture traffic, or attack devices.
+It passively scans nearby Wi-Fi access points, logs basic metadata with GPS context, and displays a small e-paper creature whose mood and evolution change as it discovers new networks.
 
-Wardra is part utility, part artifact, part creature.
+Wardra does **not** connect to networks, attempt authentication, capture traffic, crack passwords, or attack devices.
+
+It is part field logger, part Tamagotchi, part little signal-hungry goblin.
 
 ---
 
 ## Features
 
-- Passive Wi-Fi scanning via `iw`
-- GPS logging through `gpsd`
-- E-paper creature UI with mood states
-- Evolution based on unique open networks discovered
-- Persistent logs and state tracking
-- Sprite-based animation system
-- Low-power, self-contained Raspberry Pi hardware
+- Passive Wi-Fi scanning with `iw`
+- GPS tracking through `gpsd`
+- Waveshare 2.13" e-paper display support
+- Sprite-based creature UI
+- Mood states: base, alert, excited, bored, sleep
+- Evolution based on unique open Wi-Fi access points discovered
+- Persistent JSONL logs
+- Persistent state tracking
+- Single-instance lock to prevent duplicate service runs
+- Partial e-paper refresh support to reduce flashing
+- Optional systemd service file for always-on device use
 
 ---
 
 ## Hardware
 
+Wardra was built around:
+
 - Raspberry Pi Zero 2 W
 - Waveshare 2.13" V3 e-paper display
-- USB GPS receiver (G-Mouse)
+- USB GPS receiver / G-Mouse
 - microSD card
-- portable power source
+- Portable USB power source
 
 ---
 
-## File Structure
+## Project Structure
 
 ```text
 wardra/
 ├── wardra.py
 ├── sprites/
-├── logs/
+├── docs/
+│   └── gps-troubleshooting.md
+├── systemd/
+│   └── wardra.service
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
+
+Wardra expects its working folder to contain:
+
+```text
+wardra.py
+sprites/
+logs/
+```
+
+The `logs/` folder is created automatically when the script runs.
 
 ---
 
@@ -54,14 +77,27 @@ git clone https://github.com/FeralEngineering/wardra.git
 cd wardra
 ```
 
-Install dependencies:
+Install Python dependency:
 
 ```bash
-pip install pillow
+pip install -r requirements.txt
+```
+
+Install system packages:
+
+```bash
 sudo apt install gpsd gpsd-clients python3-pil
 ```
 
-Install Waveshare e-paper library and update the import path in `wardra.py` if needed.
+Wardra also requires the Waveshare e-Paper Python library.
+
+The current script uses this path:
+
+```python
+sys.path.append("/home/wardra/e-Paper/RaspberryPi_JetsonNano/python/lib")
+```
+
+If your Waveshare library is installed somewhere else, update that line in `wardra.py`.
 
 ---
 
@@ -71,59 +107,83 @@ Install Waveshare e-paper library and update the import path in `wardra.py` if n
 python3 wardra.py
 ```
 
-Wardra expects to run from:
+The current code uses:
 
-```text
-~/wardra
+```python
+BASE_DIR = os.path.expanduser("~/wardra")
 ```
 
-By default it creates:
+For the default `wardra` user, that means:
 
 ```text
-~/wardra/logs/
+/home/wardra/wardra
 ```
-
-for scan logs and state tracking.
 
 ---
 
 ## Running as a Service
 
-A sample systemd service file is included at:
+A sample systemd service file is included here:
 
+[systemd/wardra.service](./systemd/wardra.service)
 
-[`systemd/wardra.service`](systemd/wardra.service)
+It assumes Wardra is installed at:
+
+```text
+/home/wardra/wardra
+```
+
+and runs as the `wardra` user.
 
 ---
 
-## Logging
+## Logs
 
-Wardra writes:
+Wardra writes JSONL logs to:
+
+```text
+~/wardra/logs/
+```
+
+Generated files include:
 
 - `open_networks.jsonl`
 - `secure_networks.jsonl`
 - `all_networks.jsonl`
 - `state.json`
+- `wardra.lock`
 
-Logs contain Wi-Fi metadata and GPS coordinates.
+---
 
-Do not publish unsanitized logs.
+## Evolution
 
-## Troubleshooting
+Wardra currently evolves based on the number of unique open Wi-Fi BSSIDs discovered.
+
+Current thresholds:
+
+```python
+EVOLVE_THRESHOLDS = [333, 666, 999, 1312]
+```
+
+Stages are determined by open-network discovery count, not by connecting to networks.
+
+---
+
+## GPS Troubleshooting
 
 See:
 
-- [GPS Troubleshooting](docs/gps-troubleshooting.md)
+[GPS Troubleshooting](./docs/gps-troubleshooting.md)
 
 ---
 
 ## Philosophy
 
-Wardra is not designed for efficient data collection.
+Wardra is built around the idea that not everything has to be efficient to be meaningful.
 
-It is designed to make movement, attention, signal density, and digital geography feel alive.
+The point is not to build the most powerful scanner possible.
 
-Its purpose is as much experiential as technical.
+The point is to feel less like a tool and more like a creature you carry through digital terrain.
 
 ---
 
