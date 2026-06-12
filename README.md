@@ -2,15 +2,11 @@
 
 ![Wardra running](images/wardra-live.JPG)
 
-Wardra is a Raspberry Pi wardriving virtual pet.
+Wardra is a Raspberry Pi-based wardriving virtual pet.
 
-It rides around with you, passively watches for nearby Wi-Fi networks, logs what it sees with GPS context, and evolves as it discovers unique open networks.
+It passively scans for nearby Wi-Fi networks, logs them with GPS data, and uses those discoveries to drive an evolution system displayed on an e-paper screen.
 
-It does not connect to networks, crack passwords, capture traffic, or attack anything.
-
-It is not meant to be the most powerful scanner possible.
-
-It is a little signal-hungry goblin that turns wardriving into something closer to carrying a creature through invisible terrain.
+Wardra does not connect to networks, capture traffic, or perform attacks.
 
 ---
 
@@ -19,14 +15,13 @@ It is a little signal-hungry goblin that turns wardriving into something closer 
 - Passive Wi-Fi scanning with `iw`
 - GPS tracking through `gpsd`
 - Waveshare 2.13" e-paper display support
-- Sprite-based creature UI
-- Mood states: base, alert, excited, bored, sleep
-- Evolution based on unique open Wi-Fi access points discovered
-- Persistent JSONL logs
+- Sprite-based UI with multiple states
+- Evolution based on unique open Wi-Fi networks discovered
+- Persistent JSONL logging
 - Persistent state tracking
-- Single-instance lock to prevent duplicate service runs
-- Partial e-paper refresh support to reduce flashing
-- Optional systemd service file for always-on device use
+- Single-instance lock file
+- Partial e-paper refresh support
+- Optional systemd service support
 
 ---
 
@@ -54,30 +49,13 @@ Wardra/
 ├── LICENSE
 ├── .gitignore
 ├── sprites/
-│   ├── splash.png
-│   ├── stage1_alert.png
-│   ├── stage1_base.png
-│   ├── stage1_bored.png
-│   ├── stage1_excited.png
-│   ├── stage1_sleep1.png
-│   ├── stage1_sleep2.png
-│   ├── stage2_*.png
-│   ├── stage3_*.png
-│   └── stage4_*.png
 ├── images/
-│   └── wardra-live.JPG
 ├── docs/
-│   ├── gps-troubleshooting.md
-│   └── hardware.md
 ├── examples/
-│   ├── sample_open_networks.jsonl
-│   ├── sample_secure_networks.jsonl
-│   └── sample_state.json
 └── systemd/
-    └── wardra.service
 ```
 
-Wardra expects its working folder to contain:
+Wardra expects its working directory to contain:
 
 ```text
 wardra.py
@@ -85,7 +63,7 @@ sprites/
 logs/
 ```
 
-The `logs/` folder is created automatically when the script runs.
+The `logs/` directory is created automatically.
 
 ---
 
@@ -95,16 +73,16 @@ Clone the repo:
 
 ```bash
 git clone https://github.com/FeralEngineering/Wardra.git
-cd wardra
+cd Wardra
 ```
 
-Install Python dependency:
+Install Python dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Install system packages:
+Install required system packages:
 
 ```bash
 sudo apt install gpsd gpsd-clients python3-pil
@@ -112,13 +90,13 @@ sudo apt install gpsd gpsd-clients python3-pil
 
 Wardra also requires the Waveshare e-Paper Python library.
 
-The current script uses this path:
+The current script uses:
 
 ```python
 sys.path.append("/home/wardra/e-Paper/RaspberryPi_JetsonNano/python/lib")
 ```
 
-If your Waveshare library is installed somewhere else, update that line in `wardra.py`.
+Update that path if your installation differs.
 
 ---
 
@@ -128,13 +106,13 @@ If your Waveshare library is installed somewhere else, update that line in `ward
 python3 wardra.py
 ```
 
-The current code uses:
+Current code uses:
 
 ```python
 BASE_DIR = os.path.expanduser("~/wardra")
 ```
 
-For the default `wardra` user, that means:
+Default path:
 
 ```text
 /home/wardra/wardra
@@ -144,11 +122,11 @@ For the default `wardra` user, that means:
 
 ## Running as a Service
 
-A sample systemd service file is included here:
+A sample systemd service file is included:
 
 [systemd/wardra.service](./systemd/wardra.service)
 
-It assumes Wardra is installed at:
+It assumes:
 
 ```text
 /home/wardra/wardra
@@ -166,7 +144,7 @@ Wardra writes JSONL logs to:
 ~/wardra/logs/
 ```
 
-Generated files include:
+Files include:
 
 - `open_networks.jsonl`
 - `secure_networks.jsonl`
@@ -174,7 +152,7 @@ Generated files include:
 - `state.json`
 - `wardra.lock`
 
-Example outputs:
+Examples:
 
 - [Sample open network log](./examples/sample_open_networks.jsonl)
 - [Sample secure network log](./examples/sample_secure_networks.jsonl)
@@ -182,9 +160,11 @@ Example outputs:
 
 ---
 
-## Evolution
+## Evolution System
 
-Wardra currently evolves based on the number of unique open Wi-Fi BSSIDs discovered.
+Wardra tracks unique open Wi-Fi BSSIDs.
+
+Evolution stages are based on discovery count.
 
 Current thresholds:
 
@@ -192,7 +172,7 @@ Current thresholds:
 EVOLVE_THRESHOLDS = [333, 666, 999, 1312]
 ```
 
-Stages are determined by open-network discovery count, not by connecting to networks.
+Repeated discoveries near the same location use diminishing returns to reduce farming.
 
 ---
 
@@ -201,16 +181,6 @@ Stages are determined by open-network discovery count, not by connecting to netw
 See:
 
 [GPS Troubleshooting](./docs/gps-troubleshooting.md)
-
----
-
-## Philosophy
-
-Wardra is built around the idea that not everything has to be efficient to be meaningful.
-
-The point is not to build the most powerful scanner possible.
-
-The point is to feel less like a tool and more like a creature you carry through digital terrain.
 
 ---
 
