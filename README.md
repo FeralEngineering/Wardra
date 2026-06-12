@@ -4,6 +4,8 @@
 
 ![Status](https://img.shields.io/badge/status-active-green)
 
+![Platform](https://img.shields.io/badge/platform-Raspberry%20Pi-red)
+
 <p align="center">
   <img src="images/wardra-live.JPG" width="650">
 </p>
