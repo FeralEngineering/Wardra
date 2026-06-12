@@ -45,16 +45,34 @@ For full hardware details, see [Hardware](./docs/hardware.md)
 ## Project Structure
 
 ```text
-wardra/
+Wardra/
 ├── wardra.py
-├── sprites/
-├── docs/
-│   └── gps-troubleshooting.md
-├── systemd/
-│   └── wardra.service
-├── .gitignore
+├── requirements.txt
+├── README.md
 ├── LICENSE
-└── README.md
+├── .gitignore
+├── sprites/
+│   ├── splash.png
+│   ├── stage1_alert.png
+│   ├── stage1_base.png
+│   ├── stage1_bored.png
+│   ├── stage1_excited.png
+│   ├── stage1_sleep1.png
+│   ├── stage1_sleep2.png
+│   ├── stage2_*.png
+│   ├── stage3_*.png
+│   └── stage4_*.png
+├── images/
+│   └── wardra-live.JPG
+├── docs/
+│   ├── gps-troubleshooting.md
+│   └── hardware.md
+├── examples/
+│   ├── sample_open_networks.jsonl
+│   ├── sample_secure_networks.jsonl
+│   └── sample_state.json
+└── systemd/
+    └── wardra.service
 ```
 
 Wardra expects its working folder to contain:
