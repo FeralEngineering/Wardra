@@ -1,0 +1,14 @@
+{
+  "seen_bssids": {
+    "AA:11:22:33:44:55": true,
+    "AA:11:22:33:44:66": true,
+    "AA:11:22:33:44:77": true,
+    "BB:22:33:44:55:66": true,
+    "BB:22:33:44:55:77": true
+  },
+  "open_unique_count": 3,
+  "secure_unique_count": 2,
+  "all_unique_count": 5,
+  "last_new_any_ts": 1718043287.0,
+  "last_new_open_ts": 1718043287.0
+}
