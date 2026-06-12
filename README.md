@@ -1,6 +1,7 @@
 # Wardra
 *Wardra is a Raspberry Pi e-paper wardriving virtual pet that evolves as it discovers unique open Wi-Fi networks, logging passive scan metadata and GPS context while displaying a tiny creature on a low-power e-ink screen.*
 
+---
 
 Built on a Pi Zero 2 W with a Waveshare 2.13" e-paper display and GPS, Wardra passively scans nearby wireless access points, logs metadata, tracks movement, and displays a living creature whose mood and evolution reflect what it encounters.
 
