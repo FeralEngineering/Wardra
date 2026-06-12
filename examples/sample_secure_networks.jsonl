@@ -1,0 +1,2 @@
+{"ts":"2026-06-10T18:14:25Z","bssid":"BB:22:33:44:55:66","ssid":"HomeNet_5G","freq_mhz":5180,"channel":36,"signal_dbm":-49,"security":"SECURE","encryption":"WPA2-PSK","gps":{"mode":3,"lat":42.3317,"lon":-83.0462,"alt":183.4,"speed":11.4,"used_sats":8,"view_sats":13,"stale":false}}
+{"ts":"2026-06-10T18:14:39Z","bssid":"BB:22:33:44:55:77","ssid":"OfficeMesh","freq_mhz":5200,"channel":40,"signal_dbm":-68,"security":"SECURE","encryption":"WPA3-SAE","gps":{"mode":3,"lat":42.3345,"lon":-83.0495,"alt":182.1,"speed":10.7,"used_sats":8,"view_sats":13,"stale":false}}
