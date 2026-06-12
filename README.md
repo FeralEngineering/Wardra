@@ -38,6 +38,8 @@ Wardra was built around:
 - microSD card
 - Portable USB power source
 
+For full hardware details, see [Hardware](./docs/hardware.md)
+
 ---
 
 ## Project Structure
