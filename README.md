@@ -17,6 +17,7 @@ Wardra does not connect to networks, capture traffic, or perform attacks.
 - Waveshare 2.13" e-paper display support
 - Sprite-based UI with multiple states
 - Evolution based on unique open Wi-Fi networks discovered
+- Hand-drawn sprite sets for each evolution stage and behavior state
 - Persistent JSONL logging
 - Persistent state tracking
 - Single-instance lock file
