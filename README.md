@@ -74,7 +74,7 @@ The `logs/` folder is created automatically when the script runs.
 Clone the repo:
 
 ```bash
-git clone https://github.com/FeralEngineering/wardra.git
+git clone https://github.com/FeralEngineering/Wardra.git
 cd wardra
 ```
 
