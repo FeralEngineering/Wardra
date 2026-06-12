@@ -1,14 +1,16 @@
 # Wardra
 
-![Wardra running](./images/wardra-live.JPG)
+![Wardra running](images/wardra-live.JPG)
 
-Wardra is a Raspberry Pi-powered wardriving virtual pet.
+Wardra is a Raspberry Pi wardriving virtual pet.
 
-It passively scans nearby Wi-Fi access points, logs basic metadata with GPS context, and displays a small e-paper creature whose mood and evolution change as it discovers new networks.
+It rides around with you, passively watches for nearby Wi-Fi networks, logs what it sees with GPS context, and evolves as it discovers unique open networks.
 
-Wardra does **not** connect to networks, attempt authentication, capture traffic, crack passwords, or attack devices.
+It does not connect to networks, crack passwords, capture traffic, or attack anything.
 
-It is part field logger, part Tamagotchi, part little signal-hungry goblin.
+It is not meant to be the most powerful scanner possible.
+
+It is a little signal-hungry goblin that turns wardriving into something closer to carrying a creature through invisible terrain.
 
 ---
 
