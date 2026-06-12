@@ -115,8 +115,8 @@ Do not publish unsanitized logs.
 
 See:
 
-- [GPS troubleshooting](docs/gps-troubleshooting.md)
-
+- [GPS troubleshooting](https://github.com/FeralEnigneering/Wardra/docs/gps-troubleshooting.md)
+```
 ---
 
 ## Philosophy
