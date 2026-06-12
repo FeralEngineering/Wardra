@@ -154,6 +154,12 @@ Generated files include:
 - `state.json`
 - `wardra.lock`
 
+Example outputs:
+
+- [Sample open network log](./examples/sample_open_networks.jsonl)
+- [Sample secure network log](./examples/sample_secure_networks.jsonl)
+- [Sample state file](./examples/sample_state.json)
+
 ---
 
 ## Evolution
