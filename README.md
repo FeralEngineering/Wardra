@@ -87,6 +87,15 @@ for scan logs and state tracking.
 
 ---
 
+## Running as a Service
+
+A sample systemd service file is included at:
+
+```text
+systemd/wardra.service
+
+---
+
 ## Logging
 
 Wardra writes:
@@ -99,6 +108,14 @@ Wardra writes:
 Logs contain Wi-Fi metadata and GPS coordinates.
 
 Do not publish unsanitized logs.
+
+```md
+
+## Troubleshooting
+
+See:
+
+- [GPS troubleshooting](docs/gps-troubleshooting.md)
 
 ---
 
